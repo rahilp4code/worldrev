@@ -1,7 +1,12 @@
 .app {
   height: 100vh;
-  padding: 2.4rem;
+  /* padding: 2.4rem; */
   overscroll-behavior-y: none;
   display: flex;
   position: relative;
+  background-image: radial-gradient(
+    circle at 50.3% 47.3%,
+    white 0.1%,
+    green 90%
+  );
 }

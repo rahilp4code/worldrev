@@ -1,12 +1,14 @@
 .login {
-  margin: 2.5rem;
+  /* margin: 2.5rem; */
   padding: 2.5rem 5rem;
   /* background-color: var(--color-dark--1); */
   background-image: url("img-6.webp");
-  min-height: calc(100vh - 5rem);
+  /* min-height: calc(100vh - 5rem); */
+  height: 100vh;
   background-size: cover;
   background-position: center;
 }
+
 .form {
   /* background-color: var(--color-dark--2); */
 

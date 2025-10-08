@@ -1,0 +1,40 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "cityName": "Tokyo",
+      "country": "Japan",
+      "emoji": "🏯",
+      "date": "2025-09-21",
+      "notes": "A vibrant mix of tradition and technology.",
+      "position": { "lat": 35.6895, "lng": 139.6917 }
+    },
+    {
+      "id": 2,
+      "cityName": "Paris",
+      "country": "France",
+      "emoji": "🗼",
+      "date": "2025-07-14",
+      "notes": "Romantic city with stunning architecture.",
+      "position": { "lat": 48.8566, "lng": 2.3522 }
+    },
+    {
+      "id": 3,
+      "cityName": "New York",
+      "country": "USA",
+      "emoji": "🗽",
+      "date": "2025-05-10",
+      "notes": "Fast-paced and full of energy.",
+      "position": { "lat": 40.7128, "lng": -74.006 }
+    },
+    {
+      "id": 4,
+      "cityName": "Mumbai",
+      "country": "India",
+      "emoji": "🌆",
+      "date": "2025-03-18",
+      "notes": "City of dreams and endless hustle.",
+      "position": { "lat": 19.076, "lng": 72.8777 }
+    }
+  ]
+}

@@ -10,3 +10,9 @@
   align-content: start;
   gap: 1.6rem;
 }
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
