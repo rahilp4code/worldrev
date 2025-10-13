@@ -1,9 +1,21 @@
 .product {
   /* margin: 2.5rem; */
   padding: 2.5rem 5rem;
-  background-color: var(--color-dark--1);
+  /* background-color: var(--color-dark--1); */
+  background: linear-gradient(
+    90deg,
+    rgb(123, 132, 255) 0%,
+    rgb(104, 165, 255) 16.667%,
+    rgb(95, 198, 255) 33.333%,
+    rgb(99, 229, 252) 50%,
+    rgb(115, 255, 205) 66.667%,
+    rgb(141, 255, 157) 83.333%,
+    rgb(174, 255, 111) 100%
+  );
+
   /* min-height: calc(100vh - 5rem); */
   height: 100vh;
+  color: green;
 }
 
 .product section {

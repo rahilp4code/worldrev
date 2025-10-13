@@ -3,8 +3,10 @@ import styles from "./CountryList.module.css";
 import Spinner from "./Spinner";
 import Message from "./Message";
 import PropTypes from "prop-types";
+import useCities from "../contexts/useCities";
 
-function CountryList({ cities, isLoading }) {
+function CountryList() {
+  const { cities, isLoading } = useCities();
   CountryList.propTypes = {
     cities: PropTypes.arrayOf(
       PropTypes.shape({
