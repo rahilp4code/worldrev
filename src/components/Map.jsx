@@ -10,23 +10,44 @@ import {
 import styles from "./Map.module.css";
 import { useEffect, useState } from "react";
 import useCities from "../contexts/useCities";
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
+import { useGeolocation } from "../hooks/useGeolocation";
+import Button from "./Button";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 
 function Map() {
+  const {
+    isLoading: loadingPosition,
+    position: positionData,
+    getPosition,
+  } = useGeolocation();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
 
-  const [searchParam, setSearchParam] = useSearchParams();
-  const mapLat = searchParam.get("lat");
-  const mapLng = searchParam.get("lng");
+  const [mapLat, mapLng] = useUrlPosition();
+  // const [searchParam, setSearchParam] = useSearchParams();
+  // const mapLat = searchParam.get("lat");
+  // const mapLng = searchParam.get("lng");
   // console.log(mapLat, mapLng);
   useEffect(() => {
     if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
   }, [mapLat, mapLng]);
 
+  useEffect(
+    function () {
+      if (positionData) setMapPosition([positionData.lat, positionData.lng]);
+    },
+    [positionData]
+  );
+
   // onClick={() => navigate("form")
   return (
     <div className={styles.mapContainer}>
+      {!positionData && (
+        <Button type="position" onClick={getPosition}>
+          {loadingPosition ? "Loading.." : "USE YOUR POSITION"}
+        </Button>
+      )}
       <MapContainer
         // center={[mapLat, mapLng]}
         center={mapPosition}

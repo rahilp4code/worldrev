@@ -22,7 +22,6 @@ function City() {
   // setSearchParam({ lat: 12, lng: 21 });
 
   const { cityName, emoji, date, notes } = currentCity;
-  console.log(id);
   useEffect(
     function () {
       getCity(id);
