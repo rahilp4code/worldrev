@@ -3,6 +3,7 @@ import styles from "./City.module.css";
 import useCities from "../contexts/useCities";
 import { useEffect } from "react";
 import Button from "./Button";
+import Flag from "react-world-flags";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -34,7 +35,7 @@ function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          <Flag code={emoji} style={{ width: "2rem" }} /> {cityName}
         </h3>
       </div>
 

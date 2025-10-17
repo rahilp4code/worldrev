@@ -1,40 +1,64 @@
 {
   "cities": [
     {
-      "id": 1,
+      "id": "1",
       "cityName": "Tokyo",
       "country": "Japan",
-      "emoji": "🏯",
+      "emoji": "JP",
       "date": "2025-09-21",
       "notes": "A vibrant mix of tradition and technology.",
-      "position": { "lat": 35.6895, "lng": 139.6917 }
+      "position": {
+        "lat": 35.6895,
+        "lng": 139.6917
+      }
     },
     {
-      "id": 2,
+      "id": "2",
       "cityName": "Paris",
       "country": "France",
-      "emoji": "🗼",
+      "emoji": "FR",
       "date": "2025-07-14",
       "notes": "Romantic city with stunning architecture.",
-      "position": { "lat": 48.8566, "lng": 2.3522 }
+      "position": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      }
     },
     {
-      "id": 3,
+      "id": "3",
       "cityName": "New York",
       "country": "USA",
-      "emoji": "🗽",
+      "emoji": "US",
       "date": "2025-05-10",
       "notes": "Fast-paced and full of energy.",
-      "position": { "lat": 40.7128, "lng": -74.006 }
+      "position": {
+        "lat": 40.7128,
+        "lng": -74.006
+      }
     },
     {
-      "id": 4,
+      "id": "4",
       "cityName": "Mumbai",
       "country": "India",
-      "emoji": "🌆",
+      "emoji": "IN",
       "date": "2025-03-18",
       "notes": "City of dreams and endless hustle.",
-      "position": { "lat": 19.076, "lng": 72.8777 }
+      "position": {
+        "lat": 19.076,
+        "lng": 72.8777
+      }
+    },
+    {
+      "id": "1505",
+      "cityName": "Bengaluru",
+      "country": "India",
+      "emoji": "IN",
+      "date": "2025-10-16T20:37:34.250Z",
+      "notes": "",
+      "position": {
+        "lat": "12.980418246000784",
+        "lng": "77.69531250000001"
+      }
     }
   ]
 }

@@ -1,3 +1,4 @@
+import Flag from "react-world-flags";
 import styles from "./CountryItem.module.css";
 import PropTypes from "prop-types";
 
@@ -13,7 +14,7 @@ function CountryItem({ country }) {
 
   return (
     <li className={styles.countryItem}>
-      <span>{country.emoji}</span>
+      <Flag code={country.emoji} style={{ width: "2rem" }} />
       <span>{country.country}</span>
     </li>
   );

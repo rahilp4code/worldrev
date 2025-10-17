@@ -1,16 +1,23 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useEffect, useState } from "react";
-
-import styles from "./Form.module.css";
-import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./Form.module.css";
+
+import Flag from "react-world-flags";
+import DatePicker from "react-datepicker";
+import Button from "./Button";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import useCities from "../contexts/useCities";
 
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
-const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
+
+// const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
+const BASE_URL = "https://nominatim.openstreetmap.org/reverse?format=json";
 
 function Form() {
   const [lat, lng] = useUrlPosition();
@@ -20,32 +27,59 @@ function Form() {
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const [geoError, setGeoError] = useState("");
+  const [emoji, setEmoji] = useState("");
+
+  const { addCity, isLoading } = useCities();
 
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    if (!cityName && !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+    await addCity(newCity);
+    navigate("/app/cities");
   }
 
   useEffect(
     function () {
+      if (!lat && !lng) return;
       async function fetchData() {
         try {
           setIsLoadingFetchData(true);
           setGeoError("");
 
-          const res = await fetch(
-            `${BASE_URL}?latitude=${lat}&longitude=${lng}`
-          );
+          // const res = await fetch(
+          //   `${BASE_URL}?latitude=${lat}&longitude=${lng}`
+          // );
+          const res = await fetch(`${BASE_URL}&lat=${lat}&lon=${lng}`);
+          if (!res.ok) throw new Error("Network error while fetching data.");
           const data = await res.json();
-          console.log(data);
+          // console.log(data);
+          // const data = await res.json();
+          // console.log(data.countryCode);
 
-          if (!data.countryCode)
-            throw new Error("Doesnt seem to be a city. Click somewhere else");
+          // if (!data.countryCode)
+          //   throw new Error("Doesnt seem to be a city, Click somewhere else");
+          if (!data.address.country_code)
+            throw new Error("Doesnt seem to be a city, Click somewhere else");
 
-          setCityName(data.city || data.locality || "");
-          setCountry(data.countryName);
-          // setEmoji(convertToEmoji(data.countryCode));
+          setCityName(
+            data.address.city || data.address.town || data.address.village || ""
+          );
+          setCountry(data.address.country);
+          setEmoji(data.address.country_code);
+          // setCityName(data.city || data.locality || "");
+          // setCountry(data.countryName);
+          // setEmoji(data.countryCode);
         } catch (err) {
           setGeoError(err.message);
         } finally {
@@ -62,22 +96,33 @@ function Form() {
   if (geoError) return <Message message={geoError} />;
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
           id="cityName"
           onChange={(e) => setCityName(e.target.value)}
-          value={`${cityName}, ${country}`}
+          value={`${cityName}${cityName ? "," : ""} ${country}`}
         />
+        {/* <span className={styles.flag}>{emoji}</span> */}
+        <Flag className={styles.flag} code={emoji} />
       </div>
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        {/* <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
+        /> */}
+        <DatePicker
+          id="date"
+          onChange={(date) => setDate(date)}
+          selected={date}
+          dateFormat={"dd/MM/yyyy"}
         />
       </div>
 
