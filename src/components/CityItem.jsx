@@ -15,6 +15,7 @@ CityItem.propTypes = {
   city: PropTypes.shape({
     emoji: PropTypes.string.isRequired,
     cityName: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     position: PropTypes.object.isRequired,
@@ -23,7 +24,7 @@ CityItem.propTypes = {
 
 function CityItem({ city }) {
   const { currentCity, deleteCity } = useCities();
-  const { emoji, cityName, date, id, position } = city;
+  const { emoji, cityName, date, id, position, country } = city;
   //   console.log(city);
 
   function handleClick(e) {
@@ -41,7 +42,7 @@ function CityItem({ city }) {
       >
         {/* <span className={styles.emoji}>{emoji}</span> */}
         <Flag code={emoji} style={{ width: "1.5em" }} />
-        <h3 className={styles.name}>{cityName}</h3>
+        <h3 className={styles.name}>{cityName || country}</h3>
         <time className={styles.date}>({formatDate(date)})</time>
         <button className={styles.deleteBtn} onClick={handleClick}>
           &times;

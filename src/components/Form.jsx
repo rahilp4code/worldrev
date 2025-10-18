@@ -63,13 +63,13 @@ function Form() {
           const res = await fetch(`${BASE_URL}&lat=${lat}&lon=${lng}`);
           if (!res.ok) throw new Error("Network error while fetching data.");
           const data = await res.json();
-          // console.log(data);
+          console.log(data);
           // const data = await res.json();
           // console.log(data.countryCode);
 
           // if (!data.countryCode)
           //   throw new Error("Doesnt seem to be a city, Click somewhere else");
-          if (!data.address.country_code)
+          if (data.error)
             throw new Error("Doesnt seem to be a city, Click somewhere else");
 
           setCityName(

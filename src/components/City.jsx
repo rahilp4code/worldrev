@@ -21,8 +21,8 @@ function City() {
   // const lat = searchParam.get("lat");
   // const lng = searchParam.get("lng");
   // setSearchParam({ lat: 12, lng: 21 });
-
-  const { cityName, emoji, date, notes } = currentCity;
+  console.log(currentCity);
+  const { cityName, emoji, date, notes, country } = currentCity;
   useEffect(
     function () {
       getCity(id);
@@ -54,7 +54,7 @@ function City() {
       <div className={styles.row}>
         <h6>Learn more</h6>
         <a
-          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          href={`https://en.wikipedia.org/wiki/${cityName || country}`}
           target="_blank"
           rel="noreferrer"
         >
