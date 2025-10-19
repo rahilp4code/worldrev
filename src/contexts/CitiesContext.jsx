@@ -3,6 +3,8 @@ import { CitiesContext } from "./useCities";
 
 import PropTypes from "prop-types";
 
+//  states to context api witg reducer
+
 CitiesProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
