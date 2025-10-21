@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { AuthContext } from "./useAuth";
 import { useReducer } from "react";
 
-//  states to context api witg reducer
+//  states to context api with reducer
 
 AuthProvider.propTypes = {
   children: PropTypes.element.isRequired,

@@ -13,6 +13,7 @@ import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   return (
@@ -23,7 +24,14 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="product" element={<Product />} />
             <Route path="price" element={<Pricing />} />
-            <Route path="app" element={<AppNav />}>
+            <Route
+              path="app"
+              element={
+                <ProtectedRoutes>
+                  <AppNav />
+                </ProtectedRoutes>
+              }
+            >
               <Route index element={<Navigate replace to="cities" />} />
               <Route path="cities" element={<CityList />} />
               <Route path="cities/:id" element={<City />} />
