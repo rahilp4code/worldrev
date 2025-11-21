@@ -59,6 +59,42 @@
         "lat": "12.980418246000784",
         "lng": "77.69531250000001"
       }
+    },
+    {
+      "id": "c09a",
+      "cityName": "Nanded",
+      "country": "India",
+      "emoji": "in",
+      "date": "2025-11-20T14:45:18.461Z",
+      "notes": "",
+      "position": {
+        "lat": "19.132256845531398",
+        "lng": "77.32635905213006"
+      }
+    },
+    {
+      "id": "f512",
+      "cityName": "Katowice",
+      "country": "Poland",
+      "emoji": "pl",
+      "date": "2025-11-21T15:13:55.442Z",
+      "notes": "",
+      "position": {
+        "lat": "50.27750019567122",
+        "lng": "19.07193046097443"
+      }
+    },
+    {
+      "id": "09b8",
+      "cityName": "Uničov",
+      "country": "Czechia",
+      "emoji": "cz",
+      "date": "2025-11-21T15:15:06.312Z",
+      "notes": "",
+      "position": {
+        "lat": "49.745424523342294",
+        "lng": "17.09163294699951"
+      }
     }
   ]
 }

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 // update for chidlren
 
 function ProtectedRoutes({ children }) {
-  const { isAuthenticated } = useAuth;
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(
@@ -13,7 +13,7 @@ function ProtectedRoutes({ children }) {
     },
     [isAuthenticated, navigate]
   );
-  return isAuthenticated ? children : null;
+  return  isAuthenticated ? children : null;
 }
 
 export default ProtectedRoutes;

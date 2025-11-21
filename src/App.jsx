@@ -29,7 +29,7 @@ function App() {
               element={
                 <ProtectedRoutes>
                   <AppNav />
-                </ProtectedRoutes>
+               </ProtectedRoutes>
               }
             >
               <Route index element={<Navigate replace to="cities" />} />
