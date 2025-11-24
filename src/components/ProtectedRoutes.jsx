@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../contexts/useAuth";
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 // update for chidlren
+
+ProtectedRoutes.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 function ProtectedRoutes({ children }) {
   const { isAuthenticated } = useAuth();
@@ -15,5 +20,6 @@ function ProtectedRoutes({ children }) {
   );
   return  isAuthenticated ? children : null;
 }
-
+            
 export default ProtectedRoutes;
+

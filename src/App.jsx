@@ -16,6 +16,7 @@ import Form from "./components/Form";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
+
   return (
     <AuthProvider>
       <CitiesProvider>
@@ -30,8 +31,7 @@ function App() {
                 <ProtectedRoutes>
                   <AppNav />
                </ProtectedRoutes>
-              }
-            >
+              }>
               <Route index element={<Navigate replace to="cities" />} />
               <Route path="cities" element={<CityList />} />
               <Route path="cities/:id" element={<City />} />
