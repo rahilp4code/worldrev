@@ -66,6 +66,7 @@ export function CitiesProvider({ children }) {
       try {
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
+        console.log(data) 
         // setCities(data);
         dispatch({ type: "citiesLoaded", payload: data });
       } catch (err) {

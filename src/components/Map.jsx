@@ -14,6 +14,7 @@ import PropTypes from "prop-types";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import Flag from "react-world-flags";
 
 function Map() {
   const {
@@ -65,7 +66,8 @@ function Map() {
             key={city.id}
           >
             <Popup>
-              <span>{city.emoji}</span>
+              {/* <span>{city.emoji}</span> */}
+              <span><Flag code={city.emoji} style={{ width: "1em" }} /></span>
               <span>{city.cityName}</span>
             </Popup>
           </Marker>

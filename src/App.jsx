@@ -19,10 +19,10 @@ function App() {
 
   return (
     <AuthProvider>
-      <CitiesProvider>
+      <CitiesProvider> 
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route index element={<HomePage />} />
             <Route path="product" element={<Product />} />
             <Route path="price" element={<Pricing />} />
             <Route
