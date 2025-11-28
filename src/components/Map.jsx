@@ -53,7 +53,7 @@ function Map() {
         // center={[mapLat, mapLng]}
         center={mapPosition}
         zoom={8}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         className={styles.map}
       >
         <TileLayer
